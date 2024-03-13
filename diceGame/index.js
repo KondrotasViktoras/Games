@@ -1,28 +1,23 @@
-document.addEventListener("DOMContentLoaded", function () {
-  // Select the dice elements
-  const diceElements = document.querySelectorAll(".dice");
-  const h1 = document.querySelector("h1");
-  // Generate random number between 1 and 6
-  const randomNumber1 = Math.floor(Math.random() * 6) + 1;
-  const randomNumber2 = Math.floor(Math.random() * 6) + 1;
+let randomNumber1 = Math.floor(Math.random() * 6) + 1;
+console.log(randomNumber1);
 
-  // Set the src attribute of the img element to display the corresponding image
-  diceElements[0]
-    .querySelector("img")
-    .setAttribute("src", `/images/dice${randomNumber1}.png`);
-  diceElements[1]
-    .querySelector("img")
-    .setAttribute("src", `/images/dice${randomNumber2}.png`);
+document
+  .querySelector(".img1")
+  .setAttribute("src", "/diceGame/images/dice" + randomNumber1 + ".png");
 
-  if (randomNumber1 > randomNumber2) {
-    h1.textContent = "Player 1 Wins!";
-  } else if (randomNumber2 > randomNumber1) {
-    h1.textContent = "Player 2 Wins!";
-  } else {
-    h1.textContent = "Draw!";
-  }
-});
+let randomNumber2 = Math.floor(Math.random() * 6) + 1;
+console.log(randomNumber2);
 
-document.addEventListener("click", function () {
-  location.reload();
-});
+document
+  .querySelector(".img2")
+  .setAttribute("src", "/diceGame/images/dice" + randomNumber2 + ".png");
+
+let titleName = document.querySelector("h1");
+
+if (randomNumber1 > randomNumber2) {
+  titleName.innerHTML = "Player 1 wins";
+} else if (randomNumber1 < randomNumber2) {
+  titleName.innerHTML = "Player 2 wins";
+} else {
+  titleName.innerHTML = "Draw";
+}
